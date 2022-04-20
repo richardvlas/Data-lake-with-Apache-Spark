@@ -61,3 +61,24 @@ And below is an example of what the data snippet in a log file, 2018-11-12-event
 {"artist":"Fu","auth":"Logged In","firstName":"Kevin","gender":"M","itemInSession":1,"lastName":"Arellano","length":280.05832,"level":"free","location":"Harrisburg-Carlisle, PA","method":"PUT","page":"NextSong","registration":1540006905796.0,"sessionId":514,"song":"Ja I Ty","status":200,"ts":1542069637796,"userAgent":"\"Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.125 Safari\/537.36\"","userId":"66"}
 {"artist":null,"auth":"Logged In","firstName":"Maia","gender":"F","itemInSession":0,"lastName":"Burke","length":null,"level":"free","location":"Houston-The Woodlands-Sugar Land, TX","method":"GET","page":"Home","registration":1540676534796.0,"sessionId":510,"song":null,"status":200,"ts":1542071524796,"userAgent":"\"Mozilla\/5.0 (Windows NT 6.3; WOW64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.143 Safari\/537.36\"","userId":"51"}
 ```
+
+## Schema for Song Play Analysis
+Using the song and log datasets, you'll need to create a star schema optimized for queries on song play analysis. This includes the following tables.
+
+**Fact Table**
+1. **songplays** - records in log data associated with song plays i.e. records with page `NextSong`
+   - songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
+
+**Dimension Tables**
+2. **users** - users in the app
+   - user_id, first_name, last_name, gender, level
+
+3. **songs** - songs in music database
+   - song_id, title, artist_id, year, duration
+
+4. **artists** - artists in music database
+   - artist_id, name, location, lattitude, longitude
+
+5. **time** - timestamps of records in songplays broken down into specific units
+   - start_time, hour, day, week, month, year, weekday
+
