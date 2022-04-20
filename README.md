@@ -15,7 +15,6 @@ The project includes the following files and folders:
 ├── README.md
 ├── dl.cfg
 ├── etl.py
-├── requirements.txt
 ├── Sparkify.ipynb
 └── data
     ├── log-data.zip
